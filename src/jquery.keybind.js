@@ -32,7 +32,6 @@ var KeyBindings;
       }
     },
 
-
     _charCode: function(key) {
       if(this.specialKeys[key])
         return this.specialKeys[key];

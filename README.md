@@ -4,7 +4,7 @@ This is a young project and has not been cross browser tested. I made it mainly 
 # How it works
 You can bind single keys like this:
 
-    KeyBinding.add({
+    KeyBindings.add({
       'g': function(e) {
         //take action here
       }
@@ -12,7 +12,7 @@ You can bind single keys like this:
 
 Or bind to a sequence of keys, for instance pressing 'gi' in gmail will take you to your inbox:
 
-    KeyBinding.add({
+    KeyBindings.add({
       'g-i': function(e){
         //take action here
       }
@@ -20,9 +20,17 @@ Or bind to a sequence of keys, for instance pressing 'gi' in gmail will take you
 
 Or specify modifiers (shift, ctrl, alt):
 
-    KeyBinding.add({
+    KeyBindings.add({
       'shift-g': function() {
 
+      }
+    });
+
+# Good for easter eggs
+
+    KeyBindings.add({
+      'up-up-down-down-left-right-left-right-b-a-enter': function() {
+        goToSecretThing();
       }
     });
 
