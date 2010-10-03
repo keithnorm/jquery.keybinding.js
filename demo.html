@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+  <script type="text/javascript" src="/src/jquery.keybind.js"></script>
+  <script type="text/javascript">
+    KeyBindings.add({
+      'j': function(e) {
+        $('h1').html('Pressed ' + String.fromCharCode(e.which));
+      },
+
+      'g-i-j-o-e': function(){
+        $('h1').html('a real american hero');
+      },
+      
+      'ctrl-a': function(){
+        $('h1').html('pressed A with ctrl');
+      }
+    });
+  </script>
+
+  </head>
+
+  <body>
+    <input type='text' />
+    <h1 id="output"></h1>
+  </body>
+</html>
