@@ -28,8 +28,17 @@ function fireEvent(element, eventName, relatedElement, options) {
           eventObj.keyCode = options.keyCode;
         }
         element.fireEvent('on' + eventName, eventObj);
-    } else if (typeof(document.createEvent) != 'undefined') {
-        // Mozilla - mouse events only supported right now
+    } 
+
+    else if (navigator.userAgent.indexOf('Safari') != -1) {
+        var event = document.createEvent("Events");
+        event.initEvent(eventName, true, true);
+        event.keyCode = options.keyCode;
+        event.shiftKey = options.shiftKey;
+        element.dispatchEvent(event);
+    }
+
+    else if (typeof(document.createEvent) != 'undefined') {
         var evt;
         if (eventName == 'click' || eventName == 'dblclick' || eventName == 'mousedown' ||
             eventName == 'mouseup') {
@@ -64,10 +73,8 @@ function fireEvent(element, eventName, relatedElement, options) {
             throw new Error("The fireEvent test helper function does not yet know what to do with eventName " + eventName + ", so define it accordingly.");
         }
         element.dispatchEvent(evt);
-//	    assertEquals("Element should match", element, Event.element(evt));
-	    //assertEquals("Related element should match", relatedElement, YAHOO.util.Event.getRelatedTarget(evt));
-    } else {
-      // other browsers - untested.  Wonder if camelcase or all-lowercase is better?
+    } 
+    else {
       if (element['on' + eventName] != null) {
         element['on' + eventName]();
       } else {
