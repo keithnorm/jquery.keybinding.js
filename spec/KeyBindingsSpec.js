@@ -54,6 +54,28 @@ describe("KeyBindings", function() {
     expect(handler).not.toHaveBeenCalled();
     
   });
+
+  it('can bind to the konami code', function() {
+    spyOn(window, 'handler');
+    KeyBindings.add({
+      'up-up-down-down-left-right-left-right-b-a-enter': handler
+    });
+
+    fireEvent($('html')[0], 'keydown', null, {keyCode: 38, shiftKey: false}); 
+    fireEvent($('html')[0], 'keydown', null, {keyCode: 38, shiftKey: false}); 
+    fireEvent($('html')[0], 'keydown', null, {keyCode: 40, shiftKey: false}); 
+    fireEvent($('html')[0], 'keydown', null, {keyCode: 40, shiftKey: false}); 
+    fireEvent($('html')[0], 'keydown', null, {keyCode: 37, shiftKey: false}); 
+    fireEvent($('html')[0], 'keydown', null, {keyCode: 39, shiftKey: false}); 
+    fireEvent($('html')[0], 'keydown', null, {keyCode: 37, shiftKey: false}); 
+    fireEvent($('html')[0], 'keydown', null, {keyCode: 39, shiftKey: false}); 
+    fireEvent($('html')[0], 'keydown', null, {keyCode: 66, shiftKey: false}); 
+    fireEvent($('html')[0], 'keydown', null, {keyCode: 65, shiftKey: false}); 
+    fireEvent($('html')[0], 'keydown', null, {keyCode: 13, shiftKey: false}); 
+    
+    expect(handler).toHaveBeenCalled();
+    
+  });
   
 
 });

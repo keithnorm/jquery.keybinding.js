@@ -7,6 +7,9 @@ var KeyBindings;
     ignoreEventsOn: ['input', 'textarea', 'select'],
     modifiers: {'shift': 'shiftKey', 'alt': 'altKey', 'ctrl': 'ctrlKey'},
     pressedKeys: [],
+    specialKeys: {'left': 37, 'up':38, 'right': 39, 'down': 40, '!': 49, '@': 50, '#': 51,
+                  '$': 52, '%': 53, '^': 54, '&': 55, '*': 56, '(': 57, ')': 48, '_': 0,
+                  '-': 109, 'enter': 13, 'space': 32},
 
     add: function(eventMap) {
       $.extend(this.bindings, this._mapKeyBindings(eventMap));         
@@ -31,6 +34,8 @@ var KeyBindings;
 
 
     _charCode: function(key) {
+      if(this.specialKeys[key])
+        return this.specialKeys[key];
       return key.toUpperCase().charCodeAt(0);
     },
 

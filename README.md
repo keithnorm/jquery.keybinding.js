@@ -18,16 +18,12 @@ Or bind to a sequence of keys, for instance pressing 'gi' in gmail will take you
       }
     });
 
-Or specify modifers (shift, ctrl, alt):
+Or specify modifiers (shift, ctrl, alt):
 
     KeyBinding.add({
       'shift-g': function() {
 
       }
     });
-
-
-# TODO
-Bindings for special characters isn't supported yet so binding 'shift-#' doesn't work yet. 
 
 
