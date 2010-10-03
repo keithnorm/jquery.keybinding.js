@@ -4,19 +4,19 @@ This is a young project and has not been cross browser tested. I made it mainly 
 # How it works
 You can bind single keys like this:
 
-  KeyBinding.add({
-    'g': function(e) {
-      //take action here
-    }
-  });
+    KeyBinding.add({
+      'g': function(e) {
+        //take action here
+      }
+    });
 
 Or bind to a sequence of keys, for instance pressing 'gi' in gmail will take you to your inbox:
 
-  KeyBinding.add({
-    'g-i': function(e){
-      //take action here
-    }
-  });
+    KeyBinding.add({
+      'g-i': function(e){
+        //take action here
+      }
+    });
 
 Or specify modifers (shift, ctrl, alt):
 
