@@ -1,6 +1,3 @@
-# Note:
-This is a young project and has not been cross browser tested. I made it mainly for use in Greasemonkey, but I will test it and make it better as soon as I need to.
-
 # How it works
 You can bind single keys like this:
 
@@ -35,3 +32,4 @@ Or specify modifiers (shift, ctrl, alt):
     });
 
 
+Tested in IE6+, Firefox 3.6+, Safari 5 and Chrome
