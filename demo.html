@@ -2,9 +2,9 @@
   <head>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
-  <script type="text/javascript" src="/src/jquery.keybind.js"></script>
+  <script type="text/javascript" src="src/jquery.keybind.js"></script>
   <script type="text/javascript">
-    KeyBindings.add({
+    $.KeyBindings.add({
       'j': function(e) {
         $('h1').html('Pressed ' + String.fromCharCode(e.which));
       },

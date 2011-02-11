@@ -1,7 +1,6 @@
-var KeyBindings;
 
 (function($){
-  KeyBindings = {
+  $.KeyBindings = {
     
     bindings: {},
     ignoreEventsOn: ['input', 'textarea', 'select'],
@@ -25,7 +24,7 @@ var KeyBindings;
         return;
       
       this.pressedKeys.push(e.which);
-      var binding = this.bindings[this.pressedKeys.join('')]
+      var binding = this.bindings[this.pressedKeys.join('')];
       if(binding && this._checkBindingModifiers(binding, e)){
         binding.handler.call($(document), e);
         this.clear();
@@ -41,7 +40,7 @@ var KeyBindings;
     _checkBindingModifiers: function(binding, e) {
       var self = this;
       var modifiers = binding.modifiers;
-      return (modifiers.length == 0 || $.inArray(false, $.map(modifiers, function(modifier, el){
+      return (modifiers.length === 0 || $.inArray(false, $.map(modifiers, function(modifier, el){
         return e[self.modifiers[modifier]];
       })) == -1);
     },
@@ -62,14 +61,14 @@ var KeyBindings;
         eventMap[keys.join('')] = {
           handler: eventMap[key],
           modifiers: modifiers
-        }
+        };
 
       }
       return eventMap;
     }
   };
 
-  $.extend(KeyBindings, 
+  $.extend($.KeyBindings, 
     { debounce: function (func, threshold, execAsap) {
       var timeout;
       return function debounced () {
@@ -78,7 +77,7 @@ var KeyBindings;
           if (!execAsap)
             func.apply(obj, args);
           timeout = null; 
-        };
+        }
  
         if (timeout)
           clearTimeout(timeout);
@@ -91,10 +90,10 @@ var KeyBindings;
   });
 
   $(function() {
-    $(document).bind('keydown', KeyBindings.debounce(function() {
-      KeyBindings.clear();
+    $(document).bind('keydown', $.KeyBindings.debounce(function() {
+      $.KeyBindings.clear();
     }, 500, false));
 
-    $(document).bind('keydown', function(e){ KeyBindings.process(e); });
+    $(document).bind('keydown', function(e){ $.KeyBindings.process(e); });
   });
 })(jQuery);

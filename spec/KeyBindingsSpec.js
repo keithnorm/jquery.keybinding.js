@@ -2,17 +2,17 @@ describe("KeyBindings", function() {
   beforeEach(function() {
     handler = function(){
       console.log('called');
-    }
+    };
   });
 
   afterEach(function() {
-    KeyBindings.clear();
-    KeyBindings.bindings = {};
+    $.KeyBindings.clear();
+    $.KeyBindings.bindings = {};
   });
 
   it('binds single keys', function(){
     spyOn(window, 'handler');
-    KeyBindings.add({
+    $.KeyBindings.add({
       'g': handler
     });
 
@@ -23,7 +23,7 @@ describe("KeyBindings", function() {
 
   it('binds a series of keys', function() {
     spyOn(window, 'handler');
-    KeyBindings.add({
+    $.KeyBindings.add({
       'g-i': handler
     });
 
@@ -35,7 +35,7 @@ describe("KeyBindings", function() {
 
   it('binds keys in conjuction with modifiers', function() {
     spyOn(window, 'handler');
-    KeyBindings.add({
+    $.KeyBindings.add({
       'shift-g': handler
     });
 
@@ -46,7 +46,7 @@ describe("KeyBindings", function() {
 
   it('does not call handler if modifier is bound but not pressed', function() {
     spyOn(window, 'handler');
-    KeyBindings.add({
+    $.KeyBindings.add({
       'shift-g': handler
     });
 
@@ -57,7 +57,7 @@ describe("KeyBindings", function() {
 
   it('can bind to the konami code', function() {
     spyOn(window, 'handler');
-    KeyBindings.add({
+    $.KeyBindings.add({
       'up-up-down-down-left-right-left-right-b-a-enter': handler
     });
 
